@@ -3,7 +3,8 @@ package spring;
 import java.util.Date;
 
 public class Member {
-	private Long id;
+	private Long num;
+	private String id;
 	private String email;
 	private String password;
 	private String name;
@@ -11,15 +12,16 @@ public class Member {
 	
 	public Member() {}
 	
-	public Member(String email, String password, String name,  Date regdate) {
+	public Member(String id, String email, String password, String name,  Date regdate) {
+		this.setId(id);
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.regdate = regdate;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
+	public void setNum(Long num) {
+		this.num = num;
 	}
 	
 	public void setEmail(String email) {
@@ -38,8 +40,8 @@ public class Member {
 		this.regdate = regdate;
 	}
 	
-	public Long getId() {
-		return id;
+	public Long getNum() {
+		return num;
 	}
 	
 	public String getEmail() {
@@ -67,11 +69,19 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", regdate="
+		return "Member [num=" + num + ", id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", regdate="
 				+ regdate + "]";
 	}
 	
 	public boolean matchPassword(String pwd) {
 		return this.password.equals(pwd);
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

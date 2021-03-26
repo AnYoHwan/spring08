@@ -11,6 +11,13 @@
 <h2><spring:message code="member.info"/></h2>
 	<form:form action="step3" commandName="formData">
 	<!--<form action="step3" method="post">-->
+		<p>
+		<label><spring:message code="id"/><br>
+			<form:input path="id"/>
+			<form:errors path="id"/>
+			<!--<input type="text" name="id" id="id" value="${formData.id}">-->
+		</label>
+	</p>
 	<p>
 		<label><spring:message code="email"/><br>
 			<form:input path="email"/>

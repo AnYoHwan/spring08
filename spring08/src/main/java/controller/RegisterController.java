@@ -61,7 +61,7 @@ public class RegisterController {
 			memberRegisterService.regist(regReq);
 			return "register/step3";
 		}catch(AlreadyExistingMemberException e) {
-			errors.rejectValue("email", "duplicate");
+			errors.rejectValue("id", "duplicate");
 			return "register/step2";
 		}
 	}

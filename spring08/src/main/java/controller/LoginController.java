@@ -26,8 +26,8 @@ public class LoginController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String form(LoginCommand loginCommand,@CookieValue(value="REMEMBER", required=false) Cookie cookie) {
 		if(cookie != null) {
-			loginCommand.setEmail(cookie.getValue());
-			loginCommand.setRememberEmail(true);
+			loginCommand.setId(cookie.getValue());
+			loginCommand.setRememberId(true);
 		}
 		return "login/loginForm";
 	}
@@ -39,11 +39,11 @@ public class LoginController {
 			return "login/loginForm";
 		}
 		try {
-			AuthInfo authInfo = authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword());
+			AuthInfo authInfo = authService.authenticate(loginCommand.getId(), loginCommand.getPassword());
 			session.setAttribute("authInfo", authInfo);
-			Cookie rememberCookie = new Cookie("REMEMBER", loginCommand.getEmail());
+			Cookie rememberCookie = new Cookie("REMEMBER", loginCommand.getId());
 			rememberCookie.setPath("/");
-			if(loginCommand.isRememberEmail()) {
+			if(loginCommand.isRememberId()) {
 				rememberCookie.setMaxAge(60*60*24*30);
 			} else {
 				rememberCookie.setMaxAge(0);

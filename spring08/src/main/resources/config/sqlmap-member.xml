@@ -9,22 +9,22 @@
 		SELECT * FROM member ORDER BY id
 	</select>
 	
-	<select id="selectByEmail" parameterType="String" resultType="member">
-		SELECT * FROM member WHERE email = #{email}
+	<select id="selectById" parameterType="String" resultType="member">
+		SELECT * FROM member WHERE id = #{id}
 	</select>
 	
 	<insert id="insert" parameterType="member">
-		INSERT INTO member (id, email, password, name, regdate)
-		VALUES (member_SEQ.nextval, #{email}, #{password}, #{name}, #{regdate})
-		<selectKey keyProperty="id" resultType="Long">
-			SELECT NVL(MAX(id), 0) FROM member
+		INSERT INTO member (num, id, email, password, name, regdate)
+		VALUES (member_SEQ.nextval, #{id}, #{email}, #{password}, #{name}, #{regdate})
+		<selectKey keyProperty="num" resultType="Long">
+			SELECT NVL(MAX(num), 0) FROM member
 		</selectKey>
 	</insert>
 	<update id="update" parameterType="member">
-		UPDATE member SET name = #{name}, password = #{password} WHERE email = #{email}
+		UPDATE member SET email = #{email}, name = #{name}, password = #{password} WHERE id = #{id}
 	</update>
 	<delete id="delete" parameterType="member">
-		DELETE FROM MEMBER WHERE email = #{email} AND password = #{password}
+		DELETE FROM MEMBER WHERE id = #{id} AND password = #{password}
 	</delete>
 	<delete id="deleteAll">
 		DELETE FROM MEMBER
@@ -35,7 +35,7 @@
 		<select id="selectByRegdate" parameterType="HashMap" resultType="member">
 			SELECT * FROM member WHERE regdate BETWEEN #{from} AND #{to} ORDER BY regdate DESC
 		</select>
-		<select id="selectById" parameterType="Long" resultType="member">
-			SELECT * FROM member WHERE id = #{id}
+		<select id="selectByNum" parameterType="Long" resultType="member">
+			SELECT * FROM member WHERE num = #{num}
 		</select>
 </mapper>

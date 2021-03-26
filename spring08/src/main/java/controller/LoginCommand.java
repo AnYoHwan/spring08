@@ -1,14 +1,14 @@
 package controller;
 
 public class LoginCommand {
-	private String email;
+	private String id;
 	private String password;
-	private boolean rememberEmail;
-	public String getEmail() {
-		return email;
+	private boolean rememberId;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPassword() {
 		return password;
@@ -16,11 +16,11 @@ public class LoginCommand {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isRememberEmail() {
-		return rememberEmail;
+	public boolean isRememberId() {
+		return rememberId;
 	}
-	public void setRememberEmail(boolean rememberEmail) {
-		this.rememberEmail = rememberEmail;
+	public void setRememberId(boolean rememberId) {
+		this.rememberId = rememberId;
 	}
 	
 	

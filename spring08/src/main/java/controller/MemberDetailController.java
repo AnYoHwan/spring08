@@ -19,9 +19,9 @@ public class MemberDetailController {
 		this.memberDao = memberDao;
 	}
 	
-	@RequestMapping("/member/detail/{id}")
-	public String detail(@PathVariable("id")Long memId, Model model) {
-		Member member = memberDao.selectById(memId);
+	@RequestMapping("/member/detail/{num}")
+	public String detail(@PathVariable("num")Long memNum, Model model) {
+		Member member = memberDao.selectByNum(memNum);
 		if(member == null) {throw new MemberNotFoundException();}
 		model.addAttribute("member", member);
 		return "member/memberDetail";

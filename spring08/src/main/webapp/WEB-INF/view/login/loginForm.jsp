@@ -12,9 +12,9 @@
 	<form:errors />
 	<p>
 		<label>
-		<spring:message code="email" />:
-		<form:input path="email" />
-		<form:errors path="email" />
+		<spring:message code="id" />:
+		<form:input path="id" />
+		<form:errors path="id" />
 		</label>
 	</p>
 	<p>

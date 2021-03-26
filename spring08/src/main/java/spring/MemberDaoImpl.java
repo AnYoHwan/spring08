@@ -25,8 +25,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	@Override
-	public Member selectByEmail(String email) {
-		return sqlSessionTemplate.selectOne("selectByEmail", email);
+	public Member selectById(String id) {
+		return sqlSessionTemplate.selectOne("selectById", id);
 	}
 	
 	@Override
@@ -48,8 +48,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	@Override
-	public Member selectById(Long id) {
-		List<Member> results = sqlSessionTemplate.selectList("selectById", id);
+	public Member selectByNum(Long num) {
+		List<Member> results = sqlSessionTemplate.selectList("selectByNum", num);
 		return results.isEmpty() ? null : results.get(0);
 	}
 }

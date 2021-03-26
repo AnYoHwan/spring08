@@ -7,8 +7,8 @@ public class ChangePasswordService {
 		this.memberDao = memberDao;
 	}
 	
-	public void changePassword(String email, String oldPwd, String newPwd) {
-		Member member = (Member) memberDao.selectByEmail(email);
+	public void changePassword(String id, String oldPwd, String newPwd) {
+		Member member = (Member) memberDao.selectById(id);
 		if(member == null) {
 			throw new MemberNotFoundException();
 		}

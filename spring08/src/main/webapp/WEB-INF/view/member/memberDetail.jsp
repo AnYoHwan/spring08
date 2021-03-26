@@ -9,6 +9,7 @@
 <title>회원 정보</title>
 </head>
 <body>
+	<p>번호 : ${member.num}</p>
 	<p>아이디 : ${member.id}</p>
 	<p>이메일 : ${member.email}</p>
 	<p>이름 : ${member.name}</p>

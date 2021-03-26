@@ -21,13 +21,15 @@
 	<c:if test="${!empty members}">
 	<table>
 		<tr>
+			<th>번호</th>
 			<th>아이디</th><th>이메일</th>
 			<th>이름</th><th>가입일</th>
 		</tr>
 		<c:forEach var="mem" items="${members}">
 		<tr>
-			<td>${mem.id}</td>
-			<td><a href="<c:url value='/member/detail/${mem.id}'/>">${mem.email}</a></td>
+			<td>${mem.num}</td>
+			<td><a href="<c:url value='/member/detail/${mem.num}'/>">${mem.id}</a></td>
+			<td>${mem.email}</td>
 			<td>${mem.name}</td>
 			<td><fmt:formatDate value="${mem.regdate}" pattern="yyyy-MM-dd:HH"/></td>
 			</tr>

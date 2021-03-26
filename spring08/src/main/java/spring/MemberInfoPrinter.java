@@ -12,8 +12,8 @@ public class MemberInfoPrinter {
 		this.printer = printer;
 	}
 	
-	public void prinMemberInfo(String email) {
-		Member member = (Member) memDao.selectByEmail(email);
+	public void prinMemberInfo(String id) {
+		Member member = (Member) memDao.selectById(id);
 		if(member == null) {
 			System.out.println("정보 없음!\n");
 			return;

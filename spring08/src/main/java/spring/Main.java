@@ -37,7 +37,7 @@ public class Main {
 	
 	private static void updateMember() {
 		System.out.println("-----updateMember");
-		Member member = (Member) memberDao.selectByEmail("ayh@naver.com");
+		Member member = (Member) memberDao.selectById("admin");
 		String oldPw = member.getPassword();
 		String newPw = Double.toHexString(Math.random());
 		member.changPassword(oldPw, newPw);
@@ -50,7 +50,7 @@ public class Main {
 		System.out.println("-----insertMember");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddHHmmss");
 		String prefix = dateFormat.format(new Date());
-		Member member = new Member(prefix + "@test.com", prefix, prefix, new Date());
+		Member member = new Member(prefix + prefix + "@test.com", prefix, prefix, prefix, new Date());
 		memberDao.insert(member);
 		System.out.println(member.getId() + "데이터 추가");
 		
